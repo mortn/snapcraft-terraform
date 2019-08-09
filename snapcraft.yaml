@@ -1,0 +1,33 @@
+name: terraform-mortn
+version: 0.12.6
+summary: Terraform - Infrastructure-as-Code AB
+description: |
+  Terraform is a tool from Hashicorp for building, changing, and versioning
+  infrastructure safely and efficiently. Terraform can manage existing and
+  popular service providers as well as custom in-house solutions.
+
+grade: stable
+confinement: strict
+base: core18
+
+#architectures: [amd64]
+
+parts:
+  terraform:
+    plugin: go
+    source: https://github.com/hashicorp/terraform.git
+    source-tag: v0.12.6
+    source-type: git
+    go-importpath: github.com/hashicorp/terraform
+    go-packages: [github.com/hashicorp/terraform]
+    build-packages:
+      - gcc
+    #go-buildtags: [core]
+    #after: [go]
+    #go:
+    #source-tag: go1.11
+
+apps:
+  terraform:
+    command: terraform
+    plugs: [home, network]
