@@ -1,4 +1,4 @@
-name: terraform-mortn
+name: terraformm
 version: 0.12.6
 summary: Terraform - Infrastructure-as-Code AB
 description: |
@@ -10,7 +10,7 @@ grade: stable
 confinement: strict
 base: core18
 
-#architectures: [amd64]
+architectures: [amd64]
 
 parts:
   terraform:
@@ -22,12 +22,8 @@ parts:
     go-packages: [github.com/hashicorp/terraform]
     build-packages:
       - gcc
-    #go-buildtags: [core]
-    #after: [go]
-    #go:
-    #source-tag: go1.11
 
 apps:
-  terraform:
+  terraformm:
     command: terraform
     plugs: [home, network]
